@@ -4,16 +4,12 @@ const initialState = {
 };
 
 
-interface IncrementAction {
-    type: string;
+interface Action<T = number> {
+    type: 'INCREMENT' | 'DECREMENT' | 'ADDING';
+    payload?: T;
   }
   
-  interface DecrementAction {
-    type: string;
-  }
-  
-  
-  type CounterActionTypes = IncrementAction | DecrementAction;
+  type CounterActionTypes = Action<string>;
 
 const reducerFn = (state = initialState, action:CounterActionTypes) => {
 
@@ -24,6 +20,8 @@ const reducerFn = (state = initialState, action:CounterActionTypes) => {
       return { ...state, counter: state.counter + 1 };
     case 'DECREMENT':
       return { ...state, counter: state.counter > 0 ? state.counter - 1 : 0 };
+      case 'ADDING':
+        return { ...state, counter: state.counter+ Number(action.payload) };
     default:
       return state;
   }
