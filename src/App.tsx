@@ -15,7 +15,7 @@ const App = () => {
   };
 
   const addValue=()=>{
-    dispatch({type:"ADDING",payload:2}) //passing value using payload
+    dispatch({type:"ADDING",payload:10}) //passing value using payload
   }
 
   return (
@@ -24,7 +24,7 @@ const App = () => {
       <h2>{counter}</h2>
       <button onClick={increment}>Increment</button>
       <button onClick={decrement}>Decrement</button>
-      <button onClick={addValue}>Adding</button>
+      <button onClick={addValue}>Add By 10</button>
     </div>
   );
 };
